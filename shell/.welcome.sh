@@ -1,4 +1,4 @@
-echo "Terminal React tools:"
+echo "Terminal Nodejs tools:"
 echo " * mocha"
 echo " * jest"
 echo "Terminal Docker tools aliases:"

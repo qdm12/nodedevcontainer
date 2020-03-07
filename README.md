@@ -2,7 +2,7 @@
 
 **Ultimate NodeJS development container for Visual Studio Code**
 
-[![nodedevcontainer](https://github.com/qdm12/nodedevcontainer/raw/master/title.png)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
+[![nodedevcontainer](https://github.com/qdm12/nodedevcontainer/raw/master/title.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
 
 [![Build Status](https://travis-ci.org/qdm12/nodedevcontainer.svg?branch=master)](https://travis-ci.org/qdm12/nodedevcontainer)
 [![Docker Pulls](https://img.shields.io/docker/pulls/qmcgaw/nodedevcontainer.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
