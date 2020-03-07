@@ -17,14 +17,16 @@
 
 ## Features
 
-- Based on [Alpine 3.10 with the minimal packages](https://github.com/qdm12/nodedevcontainer/blob/master/doc/alpine.md) and a custom terminal
-- Node 13.2
+- Based on [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer):
+    - Alpine 3.11 with minimal custom terminal and packages
+    - Nodejs, npm and yarn downloaded as Alpine packages
+    - See more [features](https://github.com/qdm12/basedevcontainer#features)
+- Globally installed: `nodemon` and `jest`
 - Cross platform
     - Easily bind mount your SSH keys to use with **git**
-    - Manage your host Docker from within the dev container, more details at [doc/docker.md](https://github.com/qdm12/nodedevcontainer/blob/master/doc/docker.md)
-- Runs without root by default but you can `sudo`
-- 'Minimal' size of **294MB**
+    - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)
 - Extensible with docker-compose.yml
+- 'Minimal' size of **324MB**
 
 ## Requirements
 
@@ -77,11 +79,42 @@
 
 ### Development image
 
-You can build and extend the Docker development image to suit your needs, more information is available at [doc/image.md](https://github.com/qdm12/nodedevcontainer/blob/master/doc/image.md)
+- You can build the development image yourself:
 
-### welcome.sh
+    ```sh
+    docker build -t qmcgaw/nodedevcontainer https://github.com/qdm12/nodedevcontainer.git
+    ```
 
-You can bind mount a shell script to `/home/vscode/.welcome.sh` to replace the [current welcome script](shell/welcome.sh) to suit your needs.
+- You can extend the Docker image `qmcgaw/nodedevcontainer` with your own instructions.
+
+    1. Create a file `.devcontainer/Dockerfile` with `FROM qmcgaw/nodedevcontainer`
+    1. Append instructions to the Dockerfile created. For example:
+        - Add more Go packages and add an alias
+
+            ```Dockerfile
+            FROM qmcgaw/nodedevcontainer
+            RUN npm install -g jest
+            RUN echo "alias ls='ls -al'" >> ~/.zshrc
+            ```
+
+        - Add some Alpine packages, you will need to switch to `root`:
+
+            ```Dockerfile
+            FROM qmcgaw/nodedevcontainer
+            USER root
+            apk add bind-tools
+            USER vscode
+            ```
+
+    1. Modify `.devcontainer/docker-compose.yml` and add `build: .` in the vscode service.
+    1. Open the VS code command palette and choose `Remote-Containers: Rebuild container`
+
+- You can bind mount a shell script to `/home/vscode/.welcome.sh` to replace the [current welcome script](shell/.welcome.sh)
+
+## TODOs
+
+- [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer) todos
+- Compatibility with `arm/v8` and `arm/v7`
 
 ## License
 
