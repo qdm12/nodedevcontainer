@@ -2,15 +2,12 @@
 
 **Ultimate NodeJS development container for Visual Studio Code**
 
-[![nodedevcontainer](https://github.com/qdm12/nodedevcontainer/raw/master/title.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
-
-[![Build Status](https://travis-ci.org/qdm12/nodedevcontainer.svg?branch=master)](https://travis-ci.org/qdm12/nodedevcontainer)
+[![Build status](https://github.com/qdm12/nodedevcontainer/workflows/Buildx%20latest/badge.svg)](https://github.com/qdm12/nodedevcontainer/actions?query=workflow%3A%22Buildx+latest%22)
 [![Docker Pulls](https://img.shields.io/docker/pulls/qmcgaw/nodedevcontainer.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
 [![Docker Stars](https://img.shields.io/docker/stars/qmcgaw/nodedevcontainer.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
 [![Image size](https://images.microbadger.com/badges/image/qmcgaw/nodedevcontainer.svg)](https://microbadger.com/images/qmcgaw/nodedevcontainer)
 [![Image version](https://images.microbadger.com/badges/version/qmcgaw/nodedevcontainer.svg)](https://microbadger.com/images/qmcgaw/nodedevcontainer)
 
-[![Join Slack channel](https://img.shields.io/badge/slack-@qdm12-yellow.svg?logo=slack)](https://join.slack.com/t/qdm12/shared_invite/enQtOTE0NjcxNTM1ODc5LTYyZmVlOTM3MGI4ZWU0YmJkMjUxNmQ4ODQ2OTAwYzMxMTlhY2Q1MWQyOWUyNjc2ODliNjFjMDUxNWNmNzk5MDk)
 [![GitHub last commit](https://img.shields.io/github/last-commit/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
 [![GitHub issues](https://img.shields.io/github/issues/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
@@ -38,17 +35,15 @@
 
 ## Setup for a project
 
-1. Download this repository and put the `.devcontainer` directory in your project.
-   Alternatively, use this shell script from your project path
+1. Setup your configuration files
+    - With style 💯
 
-    ```sh
-    # we assume you are in /yourpath/myproject
-    mkdir .devcontainer
-    cd .devcontainer
-    wget -q https://raw.githubusercontent.com/qdm12/nodedevcontainer/master/.devcontainer/devcontainer.json
-    wget -q https://raw.githubusercontent.com/qdm12/nodedevcontainer/master/.devcontainer/docker-compose.yml
-    ```
+        ```sh
+        docker run -it --rm -v "/yourrepopath:/repository" qmcgaw/devtainr:v0.2.0 -dev node -path /repository -name projectname
+        ```
 
+        Or use the [built binary](https://github.com/qdm12/devtainr#binary)
+    - Or manually: download this repository and put the [.devcontainer](.devcontainer) directory in your project.
 1. If you have a *.vscode/settings.json*, eventually move the settings to *.devcontainer/devcontainer.json* in the `"settings"` section as *.vscode/settings.json* take precedence over the settings defined in *.devcontainer/devcontainer.json*.
 1. Open the command palette in Visual Studio Code (CTRL+SHIFT+P) and select `Remote-Containers: Open Folder in Container...` and choose your project directory
 
