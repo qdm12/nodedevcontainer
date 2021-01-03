@@ -1,10 +1,9 @@
 .devcontainer
+.github
 .git
 .vscode
 .dockerignore
 .gitignore
-.travis.yml
-ci.sh
 LICENSE
 README.md
 title.svg
