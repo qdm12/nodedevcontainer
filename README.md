@@ -5,8 +5,6 @@
 [![Build status](https://github.com/qdm12/nodedevcontainer/workflows/Buildx%20latest/badge.svg)](https://github.com/qdm12/nodedevcontainer/actions?query=workflow%3A%22Buildx+latest%22)
 [![Docker Pulls](https://img.shields.io/docker/pulls/qmcgaw/nodedevcontainer.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
 [![Docker Stars](https://img.shields.io/docker/stars/qmcgaw/nodedevcontainer.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
-[![Image size](https://images.microbadger.com/badges/image/qmcgaw/nodedevcontainer.svg)](https://microbadger.com/images/qmcgaw/nodedevcontainer)
-[![Image version](https://images.microbadger.com/badges/version/qmcgaw/nodedevcontainer.svg)](https://microbadger.com/images/qmcgaw/nodedevcontainer)
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
