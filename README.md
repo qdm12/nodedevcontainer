@@ -3,17 +3,34 @@
 **Ultimate NodeJS development container for Visual Studio Code**
 
 [![Build status](https://github.com/qdm12/nodedevcontainer/workflows/Buildx%20latest/badge.svg)](https://github.com/qdm12/nodedevcontainer/actions?query=workflow%3A%22Buildx+latest%22)
-[![Docker Pulls](https://img.shields.io/docker/pulls/qmcgaw/nodedevcontainer.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
-[![Docker Stars](https://img.shields.io/docker/stars/qmcgaw/nodedevcontainer.svg)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
+[![dockeri.co](https://dockeri.co/image/qmcgaw/nodedevcontainer)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
+
+![Last Docker tag](https://img.shields.io/docker/v/qmcgaw/nodedevcontainer?sort=semver&label=Last%20Docker%20tag)
+[![Latest size](https://img.shields.io/docker/image-size/qmcgaw/nodedevcontainer/latest?label=Latest%20image)](https://hub.docker.com/r/qmcgaw/nodedevcontainer/tags)
+
+![Last release](https://img.shields.io/github/release/qdm12/nodedevcontainer?label=Last%20release)
+[![Last release size](https://img.shields.io/docker/image-size/qmcgaw/nodedevcontainer?sort=semver&label=Last%20released%20image)](https://hub.docker.com/r/qmcgaw/nodedevcontainer/tags?page=1&ordering=last_updated)
+![GitHub last release date](https://img.shields.io/github/release-date/qdm12/nodedevcontainer?label=Last%20release%20date)
+![Commits since release](https://img.shields.io/github/commits-since/qdm12/nodedevcontainer/latest?sort=semver)
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/commits/main)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/graphs/contributors)
+[![GitHub closed PRs](https://img.shields.io/github/issues-pr-closed/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/pulls?q=is%3Apr+is%3Aclosed)
 [![GitHub issues](https://img.shields.io/github/issues/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/qdm12/nodedevcontainer.svg)](https://github.com/qdm12/nodedevcontainer/issues?q=is%3Aissue+is%3Aclosed)
+
+[![Lines of code](https://img.shields.io/tokei/lines/github/qdm12/nodedevcontainer)](https://github.com/qdm12/nodedevcontainer)
+![Code size](https://img.shields.io/github/languages/code-size/qdm12/nodedevcontainer)
+![GitHub repo size](https://img.shields.io/github/repo-size/qdm12/nodedevcontainer)
+
+![Visitors count](https://visitor-badge.laobi.icu/badge?page_id=nodedevcontainer.readme)
 
 ## Features
 
+- Compatible with `amd64`, `386`, `arm64`, `armv6`, `armv7` and `ppc64le` CPUs
 - Based on [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer):
-    - Alpine 3.11 with minimal custom terminal and packages
+    - Alpine 3.14 with minimal custom terminal and packages
     - Nodejs, npm and yarn downloaded as Alpine packages
     - See more [features](https://github.com/qdm12/basedevcontainer#features)
 - Globally installed: `nodemon` and `jest`
@@ -21,7 +38,7 @@
     - Easily bind mount your SSH keys to use with **git**
     - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)
 - Extensible with docker-compose.yml
-- 'Minimal' size of **324MB**
+- 'Minimal' size of **326MB**
 
 ## Requirements
 
@@ -45,69 +62,9 @@
 1. If you have a *.vscode/settings.json*, eventually move the settings to *.devcontainer/devcontainer.json* in the `"settings"` section as *.vscode/settings.json* take precedence over the settings defined in *.devcontainer/devcontainer.json*.
 1. Open the command palette in Visual Studio Code (CTRL+SHIFT+P) and select `Remote-Containers: Open Folder in Container...` and choose your project directory
 
-## More
+## Customization
 
-### devcontainer.json
-
-- You can change the `"postCreateCommand"` to be relevant to your situation. In example it could be `npm install && npm start` to combine two commands
-- You can change the extensions installed in the Docker image within the `"extensions"` array
-- Other Node settings can be changed or added in the `"settings"` object.
-
-### docker-compose.yml
-
-- You can publish a port to access it from your host
-- Add containers to be launched with your development container. In example, let's add a postgres database.
-    1. Add this block to `.devcontainer/docker-compose.yml`
-
-        ```yml
-          database:
-            image: postgres
-            restart: always
-            environment:
-              POSTGRES_PASSWORD: password
-        ```
-
-    1. In `.devcontainer/devcontainer.json` change the line `"runServices": ["vscode"],` to `"runServices": ["vscode", "database"],`
-    1. In the VS code command palette, rebuild the container
-
-### Development image
-
-- You can build the development image yourself:
-
-    ```sh
-    docker build -t qmcgaw/nodedevcontainer https://github.com/qdm12/nodedevcontainer.git
-    ```
-
-- You can extend the Docker image `qmcgaw/nodedevcontainer` with your own instructions.
-
-    1. Create a file `.devcontainer/Dockerfile` with `FROM qmcgaw/nodedevcontainer`
-    1. Append instructions to the Dockerfile created. For example:
-        - Add more Go packages and add an alias
-
-            ```Dockerfile
-            FROM qmcgaw/nodedevcontainer
-            RUN npm install -g jest
-            RUN echo "alias ls='ls -al'" >> ~/.zshrc
-            ```
-
-        - Add some Alpine packages, you will need to switch to `root`:
-
-            ```Dockerfile
-            FROM qmcgaw/nodedevcontainer
-            USER root
-            apk add bind-tools
-            USER vscode
-            ```
-
-    1. Modify `.devcontainer/docker-compose.yml` and add `build: .` in the vscode service.
-    1. Open the VS code command palette and choose `Remote-Containers: Rebuild container`
-
-- You can bind mount a shell script to `/home/vscode/.welcome.sh` to replace the [current welcome script](shell/.welcome.sh)
-
-## TODOs
-
-- [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer) todos
-- Compatibility with `arm/v8` and `arm/v7`
+See the [.devcontainer/README.md](.devcontainer/README.md) document in your repository.
 
 ## License
 
