@@ -8,7 +8,7 @@
         "vscode"
     ],
     "shutdownAction": "stopCompose",
-    "postCreateCommand": "yarn install",
+    "postCreateCommand": "~/.windows.sh && yarn install",
     "workspaceFolder": "/workspace",
     // "overrideCommand": "",
     "customizations": {
