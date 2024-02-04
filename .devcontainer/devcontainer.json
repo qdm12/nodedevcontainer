@@ -37,9 +37,7 @@
             ],
             "settings": {
                 "files.eol": "\n",
-                "remote.extensionKind": {
-                    "ms-azuretools.vscode-docker": "workspace"
-                },
+                "editor.formatOnSave": true,
                 "editor.codeActionsOnSave": {
                     "source.fixAll.eslint": true
                 },
@@ -47,7 +45,6 @@
                     "javascript",
                     "typescript",
                 ],
-                "editor.formatOnSave": true,
                 "[javascript]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode",
                     "editor.formatOnSave": false
@@ -56,7 +53,10 @@
                     "editor.defaultFormatter": "esbenp.prettier-vscode",
                     "editor.formatOnSave": false
                 },
-                "prettier-eslint.eslintIntegration": true
+                "prettier-eslint.eslintIntegration": true,
+                "remote.extensionKind": {
+                    "ms-azuretools.vscode-docker": "workspace"
+                }
             }
         }
     }
