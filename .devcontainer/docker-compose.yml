@@ -16,8 +16,6 @@ services:
       - ~/.zsh_history:/root/.zsh_history
       # Git config
       - ~/.gitconfig:/root/.gitconfig
-      # Kubernetes
-      - ~/.kube:/root/.kube
     environment:
       - TZ=
     entrypoint: ["zsh", "-c", "while sleep 1000; do :; done"]
