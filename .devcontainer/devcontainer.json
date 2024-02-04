@@ -1,8 +1,12 @@
 {
     "name": "project-dev",
-    "dockerComposeFile": ["docker-compose.yml"],
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
     "service": "vscode",
-    "runServices": ["vscode"],
+    "runServices": [
+        "vscode"
+    ],
     "shutdownAction": "stopCompose",
     "postCreateCommand": "yarn install",
     "workspaceFolder": "/workspace",
