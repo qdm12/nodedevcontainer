@@ -2,7 +2,7 @@
 
 **Ultimate NodeJS development container for Visual Studio Code**
 
-[![Build status](https://github.com/qdm12/nodedevcontainer/workflows/Buildx%20latest/badge.svg)](https://github.com/qdm12/nodedevcontainer/actions?query=workflow%3A%22Buildx+latest%22)
+[![Build status](https://github.com/qdm12/nodedevcontainer/actions/workflows/latest.yml/badge.svg)](https://github.com/qdm12/nodedevcontainer/actions/workflows/latest.yml)
 
 [![dockeri.co](https://dockeri.co/image/qmcgaw/nodedevcontainer)](https://hub.docker.com/r/qmcgaw/nodedevcontainer)
 
@@ -28,23 +28,24 @@
 
 ## Features
 
-- Compatible with `amd64`, `386`, `arm64`, `armv6`, `armv7` and `ppc64le` CPUs
 - Based on [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer):
-    - Alpine 3.14 with minimal custom terminal and packages
-    - Nodejs, npm and yarn downloaded as Alpine packages
-    - See more [features](https://github.com/qdm12/basedevcontainer#features)
+  - Alpine 3.19 with minimal custom terminal and packages
+  - Nodejs, npm and yarn downloaded as Alpine packages
+  - See more [features](https://github.com/qdm12/basedevcontainer#features)
+  - Minimal custom terminal and packages
+  - See more [features](https://github.com/qdm12/basedevcontainer#features)
 - Globally installed: `nodemon` and `jest`
 - Cross platform
-    - Easily bind mount your SSH keys to use with **git**
-    - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)
+  - Easily bind mount your SSH keys to use with **git**
+  - Manage your host Docker from within the dev container, more details at [qmcgaw/basedevcontainer](https://github.com/qdm12/basedevcontainer#features)
 - Extensible with docker-compose.yml
-- 'Minimal' size of **473MB**
+- 'Minimal' size of **535MB**
 - Comes with extra Go binary tools for a few extra MBs: `kubectl`, `kubectx`, `kubens`, `stern` and `helm`
 
 ## Requirements
 
 - [Docker](https://www.docker.com/products/docker-desktop) installed and running
-    - If you don't use Linux, share the directories `~/.ssh` and the directory of your project with Docker Desktop
+  - If you don't use Linux or Windows with WSL, share the directory `~/.ssh` and the directory of your project with Docker Desktop
 - [Docker Compose](https://docs.docker.com/compose/install/) installed
 - [VS code](https://code.visualstudio.com/download) installed
 - [VS code remote containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed
